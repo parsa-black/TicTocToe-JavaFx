@@ -1,10 +1,12 @@
 package com.company;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -12,10 +14,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Button button = new Button("ok");
-        AnchorPane pane = new AnchorPane();
-        pane.getChildren().addAll(button);
-        Scene scene = new Scene(pane);
+        AnchorPane root = FXMLLoader.load(this.getClass().getResource("/com/company/View/MainPageView.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/com/company/View/StyleSheet.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
