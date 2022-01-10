@@ -13,10 +13,11 @@ public class MainPageController implements Initializable {
     @FXML
     private Button exitBTN;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        exitBTN.setOnAction(e -> ( (Stage) exitBTN.getScene().getWindow() ).close());
+        exitBTN.setOnAction(event -> ( (Stage) exitBTN.getScene().getWindow() ).close() );
 
     }
 }
