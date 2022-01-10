@@ -216,7 +216,7 @@
             </Pane>
             <Pane layoutX="381.0" layoutY="257.0">
                <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+                  <Button fx:id="exitBTN" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
                   <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.44075829383886256">
