@@ -34,7 +34,7 @@ public class MainPageController implements Initializable {
                 if ( stage == null ){
                     AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/PlayPageView.fxml"));
                     stage = new Stage();
-                    stage.setTitle("play view");
+                    stage.setTitle("TIK TOK TOE");
                     stage.setScene(new Scene(root));
                     stage.show();
                 }
