@@ -17,15 +17,20 @@ public class PlayPageController implements Initializable {
     @FXML
     private Button backBTN;
 
+    @FXML
+    private Button helpBTN;
+
     static Stage stage = null;
+
+    public static Stage helpStage = null; //public because HelpPageController need to Access
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        backBTN.setOnAction(e ->{
-            ( (Stage) backBTN.getScene().getWindow() ).close();
+        backBTN.setOnAction(e -> {
+            ((Stage) backBTN.getScene().getWindow()).close();
             try {
-                if (stage == null){
+                if (stage == null) {
                     AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/MainPageView.fxml"));
                     stage = new Stage();
                     stage.setTitle("MainPage");
@@ -37,6 +42,22 @@ public class PlayPageController implements Initializable {
                 ioException.printStackTrace();
             }
         });
+
+
+        helpBTN.setOnAction(e -> {
+            try {
+                if (helpStage == null) {
+                    AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/HelpPageOneView.fxml"));
+                    helpStage = new Stage();
+                    helpStage.setTitle("HelpPage");
+                    helpStage.setScene(new Scene(root));
+                    helpStage.show();
+                }
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
 
     }
 }
