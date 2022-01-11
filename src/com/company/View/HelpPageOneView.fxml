@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="122.0" prefWidth="434.0" style="-fx-background-radius: 50; -fx-background-color: #2F2B43; -fx-border-radius: 50;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.HelpPageOneController">
+   <children>
+      <Label alignment="CENTER" layoutX="4.0" layoutY="23.0" prefHeight="17.0" prefWidth="427.0" text="Multiplayer is Play between two players" textFill="WHITE" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="23.0">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="4.0" layoutY="51.0" prefHeight="17.0" prefWidth="427.0" text="Singleplayer is Play between player &amp; pc" textFill="WHITE" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="51.0">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitBTN" layoutX="185.0" layoutY="78.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="58.0" styleClass="button1" stylesheets="@StyleSheet.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/exitbutton.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

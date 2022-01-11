@@ -12,7 +12,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="547.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.PlayPageController">
    <children>
       <Pane layoutX="58.0" layoutY="77.0">
@@ -118,7 +117,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="248.0" layoutY="343.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="55.0" styleClass="button1" stylesheets="@StyleSheet.css">
+      <Button fx:id="helpBTN" layoutX="248.0" layoutY="343.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="55.0" styleClass="button1" stylesheets="@StyleSheet.css">
          <graphic>
             <ImageView fitHeight="49.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
