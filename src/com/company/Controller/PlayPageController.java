@@ -12,29 +12,23 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainPageController implements Initializable {
+public class PlayPageController implements Initializable {
 
     @FXML
-    private Button exitBTN;
-
-    @FXML
-    private Button playBTN;
+    private Button backBTN;
 
     static Stage stage = null;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        exitBTN.setOnAction(event -> ( (Stage) exitBTN.getScene().getWindow() ).close() );
-
-        playBTN.setOnAction(e -> {
-            ( (Stage) exitBTN.getScene().getWindow() ).close();
-            try{
-                if ( stage == null ){
-                    AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/PlayPageView.fxml"));
+        backBTN.setOnAction(e ->{
+            ( (Stage) backBTN.getScene().getWindow() ).close();
+            try {
+                if (stage == null){
+                    AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/MainPageView.fxml"));
                     stage = new Stage();
-                    stage.setTitle("TIK TOK TOE");
+                    stage.setTitle("MainPage");
                     stage.setScene(new Scene(root));
                     stage.show();
                     stage = null;

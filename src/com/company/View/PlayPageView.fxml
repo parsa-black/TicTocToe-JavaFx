@@ -1,13 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="547.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.PlayPageController">
+   <children>
+      <Pane layoutX="58.0" layoutY="77.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+            <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.44164231419563293" green="0.12012670934200287" blue="0.7631579041481018" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="0.6078431606292725" blue="0.7607843279838562" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.5165876777251185" startY="0.5023696682464455">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4431372582912445" green="0.12156862765550613" blue="0.7647058963775635" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007662835249042145">
+                           <color>
+                              <Color red="0.4431372582912445" green="0.12156862765550613" blue="0.7647058963775635" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="0.6078431606292725" blue="0.7607843279838562" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Circle>
+            <Label alignment="CENTER" layoutY="145.0" prefHeight="17.0" prefWidth="168.0" text="Multiplayer" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="51.0" layoutX="65.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/icons8_member_48px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="318.0" layoutY="77.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+            <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4431372582912445" green="0.12156862765550613" blue="0.7647058963775635" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="0.6078431606292725" blue="0.7607843279838562" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.4881516587677725" startY="0.5260663507109005">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4431372582912445" green="0.12156862765550613" blue="0.7647058963775635" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="0.6078431606292725" blue="0.7607843279838562" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Circle>
+            <Label alignment="CENTER" layoutY="145.0" prefHeight="17.0" prefWidth="168.0" text="Singleplayer" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="65.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/icons8_customer_48px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button layoutX="248.0" layoutY="343.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="55.0" styleClass="button1" stylesheets="@StyleSheet.css">
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/help.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="backBTN" layoutX="204.0" layoutY="286.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="142.0" styleClass="button1" stylesheets="@StyleSheet.css" text=" Back" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
 </AnchorPane>
