@@ -24,7 +24,7 @@
             <Pane layoutX="221.0" layoutY="-116.0" opacity="0.7" prefHeight="274.0" prefWidth="90.0" rotate="-35.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
             <Pane layoutX="188.0" layoutY="41.0">
                <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+                  <Button fx:id="playBTN" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
                   <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.5071090047393365">
