@@ -20,6 +20,9 @@ public class PlayPageController implements Initializable {
     @FXML
     private Button helpBTN;
 
+    @FXML
+    private Button multiBTN;
+
     static Stage stage = null;
 
     public static Stage helpStage = null; //public because HelpPageController need to Access
@@ -57,6 +60,24 @@ public class PlayPageController implements Initializable {
                 ioException.printStackTrace();
             }
         });
+
+        multiBTN.setOnAction(e -> {
+            ((Stage) backBTN.getScene().getWindow()).close();
+            try {
+                if (stage == null) {
+                    AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/MultiPlayPageView.fxml"));
+                    stage = new Stage();
+                    stage.setTitle("MultiPlay");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    stage = null;
+                }
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+
 
 
     }

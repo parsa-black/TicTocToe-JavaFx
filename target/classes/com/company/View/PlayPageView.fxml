@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -16,7 +17,10 @@
    <children>
       <Pane layoutX="58.0" layoutY="77.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+            <Button fx:id="multiBTN" mnemonicParsing="false" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="1.0">
@@ -70,7 +74,10 @@
       </Pane>
       <Pane layoutX="318.0" layoutY="77.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+            <Button fx:id="singleBTN" mnemonicParsing="false" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="1.0">
@@ -123,6 +130,9 @@
                <image>
                   <Image url="@image/help.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </graphic>
       </Button>
@@ -137,6 +147,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

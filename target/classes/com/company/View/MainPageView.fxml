@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,7 +26,10 @@
             <Pane layoutX="221.0" layoutY="-116.0" opacity="0.7" prefHeight="274.0" prefWidth="90.0" rotate="-35.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
             <Pane layoutX="188.0" layoutY="41.0">
                <children>
-                  <Button fx:id="playBTN" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+                  <Button fx:id="playBTN" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.5071090047393365">
@@ -83,7 +88,10 @@
             </Pane>
             <Pane layoutX="381.0" layoutY="41.0">
                <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.44075829383886256">
@@ -147,7 +155,10 @@
             </Pane>
             <Pane layoutX="188.0" layoutY="257.0">
                <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.44075829383886256">
@@ -216,7 +227,10 @@
             </Pane>
             <Pane layoutX="381.0" layoutY="257.0">
                <children>
-                  <Button fx:id="exitBTN" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css" />
+                  <Button fx:id="exitBTN" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button1" stylesheets="@StyleSheet.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Circle layoutX="84.0" layoutY="79.0" radius="50.0" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0" startY="0.44075829383886256">
@@ -289,11 +303,7 @@
                         <Image url="@image/game01.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="14.0" layoutY="440.0" prefHeight="17.0" prefWidth="154.0" text="By : Parsa" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
+                  <Hyperlink fx:id="creatorBTN" layoutX="8.0" layoutY="434.0" prefHeight="23.0" prefWidth="154.0" text="By : Parsa" />
                </children>
             </AnchorPane>
          </children>
