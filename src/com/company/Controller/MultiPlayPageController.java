@@ -1,16 +1,21 @@
 package com.company.Controller;
 
+import com.company.Model.Player;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MultiPlayPageController implements Initializable {
@@ -21,10 +26,25 @@ public class MultiPlayPageController implements Initializable {
     @FXML
     private Button backBTN;
 
+    @FXML
+    private Button playBTN;
+
+    @FXML
+    private TextField player1TF;
+
+    @FXML
+    private TextField player2TF;
+
+    @FXML
+    private Label checkLBL;
+
     static Stage stage;
+    private int score = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        checkLBL.setText("");
 
         backBTN.setOnAction(e -> {
             ((Stage) backBTN.getScene().getWindow()).close();
@@ -42,10 +62,103 @@ public class MultiPlayPageController implements Initializable {
             }
         });
 
+        playBTN.setOnAction(e -> {
+            OpenPlayPage();
+        });
+
+
+
         choiceBOX.getItems().add("choice 1");
         choiceBOX.getItems().add("choice 2");
         choiceBOX.getItems().add("choice 3");
 
 
     }
+
+    private void OpenPlayPage(){
+        if (checkAllFiled()){
+            Player player1 = getUserWithUserName(player1TF.getText());
+            Player player2 = getUserWithUserName(player2TF.getText());
+            if ( player1 != null && player2 != null ){
+                try{
+                    loadPlayPage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (player1 == null && player2 == null){
+                CreatePlayer1();
+                CreatePlayer2();
+                try {
+                    loadPlayPage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                if (player1 == null){
+                    CreatePlayer1();
+                    try {
+                        loadPlayPage();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    CreatePlayer2();
+                    try {
+                        loadPlayPage();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean checkAllFiled(){
+        if (player1TF.getText().isEmpty() || player2TF.getText().isEmpty()){
+            checkLBL.setText("Please Fill Up The Form");
+            return false;
+        }
+        return true;
+    }
+
+    private Player getUserWithUserName(String userName){
+        ArrayList<Player> players = Player.getAllPlayers();
+
+        for (Player player : players){
+            if (player.getUsername().equals(userName))
+                return player;
+        }
+        return null;
+    }
+
+    private void loadPlayPage() throws IOException {
+
+        AnchorPane root = FXMLLoader.load(this.getClass().getResource("../view/GamePageView.fxml"));
+        Stage stage = (Stage) playBTN.getScene().getWindow();
+        stage.setScene(new Scene(root));
+
+        stage.show();
+
+    }
+
+    private void CreatePlayer1(){
+        Player player = new Player(player1TF.getText(), score);
+        player.save();
+    }
+
+
+    private void CreatePlayer2(){
+        Player player = new Player(player2TF.getText() , score);
+        player.save();
+    }
+
+
+    private void cleanPage(){
+        player1TF.setText("");
+        player2TF.setText("");
+        checkLBL.setText("");
+    }
+
 }

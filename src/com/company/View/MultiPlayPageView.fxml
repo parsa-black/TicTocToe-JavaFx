@@ -49,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane layoutX="56.0" layoutY="239.0" prefHeight="37.0" prefWidth="207.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="44.0">
+      <Pane layoutX="56.0" layoutY="237.0" prefHeight="37.0" prefWidth="207.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="44.0">
          <children>
             <ChoiceBox fx:id="choiceBOX" layoutX="140.0" layoutY="6.0" prefHeight="25.0" prefWidth="53.0">
                <cursor>
@@ -78,5 +78,10 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="checkLBL" alignment="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="301.0" textFill="RED" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
