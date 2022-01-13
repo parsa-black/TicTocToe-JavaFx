@@ -1,0 +1,1 @@
+SELECT * FROM `tiktoktoe-project`.players;

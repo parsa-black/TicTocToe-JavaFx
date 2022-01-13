@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="460.0" prefWidth="307.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.MultiPlayPageController">
    <children>
-      <TextField layoutX="56.0" layoutY="125.0" prefHeight="25.0" prefWidth="207.0" promptText="Player one" styleClass="text-field" stylesheets="@StyleSheet.css">
+      <TextField fx:id="player1TF" layoutX="56.0" layoutY="125.0" prefHeight="25.0" prefWidth="207.0" promptText="Player one" styleClass="text-field" stylesheets="@StyleSheet.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -22,7 +21,7 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="56.0" layoutY="171.0" prefHeight="25.0" prefWidth="207.0" promptText="Player two" styleClass="text-field" stylesheets="@StyleSheet.css">
+      <TextField fx:id="player2TF" layoutX="56.0" layoutY="171.0" prefHeight="25.0" prefWidth="207.0" promptText="Player two" styleClass="text-field" stylesheets="@StyleSheet.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -64,5 +63,20 @@
             </Label>
          </children>
       </Pane>
+      <Button fx:id="playBTN" contentDisplay="RIGHT" layoutX="91.0" layoutY="332.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="129.0" styleClass="button1" stylesheets="@StyleSheet.css" text="Play" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="87.0">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/PlayGame.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
