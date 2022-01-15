@@ -39,7 +39,10 @@ public class MultiPlayPageController implements Initializable {
     private Label checkLBL;
 
     static Stage stage;
+
     private int score = 0;
+
+    private boolean Verify = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,8 +67,16 @@ public class MultiPlayPageController implements Initializable {
 
         playBTN.setOnAction(e -> {
             OpenPlayPage();
-        });
+            Player player1 = getUserWithUserName(player1TF.getText());
+            Player player2 = getUserWithUserName(player2TF.getText());
+            try {
+                loadPlayPage(player1, player2);
+                cleanPage();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
 
+        });
 
 
         choiceBOX.getItems().add("choice 1");
@@ -75,87 +86,74 @@ public class MultiPlayPageController implements Initializable {
 
     }
 
-    private void OpenPlayPage(){
-        if (checkAllFiled()){
+    private void OpenPlayPage() {
+        if (checkAllFiled()) {
             Player player1 = getUserWithUserName(player1TF.getText());
             Player player2 = getUserWithUserName(player2TF.getText());
-            if ( player1 != null && player2 != null ){
-                try{
-                    loadPlayPage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if (player1 == null && player2 == null){
+            if (player1 != null && player2 != null) {
+                Verify = true;
+            } else if (player1 == null && player2 == null) {
                 CreatePlayer1();
                 CreatePlayer2();
-                try {
-                    loadPlayPage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else {
-                if (player1 == null){
+                Verify = true;
+            } else {
+                if (player1 == null) {
                     CreatePlayer1();
-                    try {
-                        loadPlayPage();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }else {
+                } else {
                     CreatePlayer2();
-                    try {
-                        loadPlayPage();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                 }
+                Verify = true;
             }
         }
     }
 
-    private boolean checkAllFiled(){
-        if (player1TF.getText().isEmpty() || player2TF.getText().isEmpty()){
+    private boolean checkAllFiled() {
+        if (player1TF.getText().isEmpty() || player2TF.getText().isEmpty()) {
             checkLBL.setText("Please Fill Up The Form");
             return false;
         }
         return true;
     }
 
-    private Player getUserWithUserName(String userName){
+    private Player getUserWithUserName(String userName) {
         ArrayList<Player> players = Player.getAllPlayers();
 
-        for (Player player : players){
+        for (Player player : players) {
             if (player.getUsername().equals(userName))
                 return player;
         }
         return null;
     }
 
-    private void loadPlayPage() throws IOException {
+    private void loadPlayPage(Player player1, Player player2) throws IOException {
 
-        AnchorPane root = FXMLLoader.load(this.getClass().getResource("../view/GamePageView.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/GamePageView.fxml"));
+        loader.load();
+
+        GamePageController controller = loader.getController();
+        controller.initPage(player1, player2);
+//        AnchorPane root = FXMLLoader.load(this.getClass().getResource("../view/GamePageView.fxml"));
         Stage stage = (Stage) playBTN.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(loader.getRoot()));
 
         stage.show();
 
     }
 
-    private void CreatePlayer1(){
+    private void CreatePlayer1() {
         Player player = new Player(player1TF.getText(), score);
         player.save();
     }
 
 
-    private void CreatePlayer2(){
-        Player player = new Player(player2TF.getText() , score);
+    private void CreatePlayer2() {
+        Player player = new Player(player2TF.getText(), score);
         player.save();
     }
 
 
-    private void cleanPage(){
+    private void cleanPage() {
+        Verify = false;
         player1TF.setText("");
         player2TF.setText("");
         checkLBL.setText("");
