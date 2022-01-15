@@ -1,16 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="465.0" prefWidth="479.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.GamePageController">
    <children>
-      <Label layoutX="237.0" layoutY="148.0" prefHeight="104.0" prefWidth="127.0" text="افرین">
+      <Button fx:id="resetButton" layoutX="215.0" layoutY="410.0" mnemonicParsing="false" styleClass="button1" stylesheets="@StyleSheet.css" text="restart" textFill="WHITE">
          <font>
-            <Font name="B Nazanin" size="64.0" />
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Text fx:id="winnerText" fill="#fa2c56" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIK TOK TOE" wrappingWidth="63.013671875" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="402.0">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Text>
+      <Label fx:id="player1LBL" layoutX="90.0" layoutY="37.0" text="PLayerName1" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="player2LBL" layoutX="305.0" layoutY="37.0" text="PlayerName2" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <VBox layoutX="90.0" layoutY="83.0" prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="83.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="button1" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button2" layoutX="10.0" layoutY="10.0" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button3" layoutX="10.0" layoutY="10.0" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="button4" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button5" layoutX="10.0" layoutY="10.0" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button6" layoutX="10.0" layoutY="10.0" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="button7" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button8" layoutX="10.0" layoutY="10.0" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button9" layoutX="10.0" layoutY="10.0" minHeight="100.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button2" stylesheets="@StyleSheet.css" textFill="#30b8d2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
