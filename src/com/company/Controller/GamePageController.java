@@ -54,6 +54,16 @@ public class GamePageController implements Initializable {
     @FXML
     private Button reStartBTN;
 
+    @FXML
+    private Label player1Score;
+
+    @FXML
+    private Label player2Score;
+
+    private int p1s = 0; //Player1Score
+
+    private int p2s = 0; //Player2Score
+
 
     private int playerTurn = 0;
 
@@ -78,6 +88,8 @@ public class GamePageController implements Initializable {
 
         reStartBTN.setOnAction(e -> {
             buttons.forEach(this::resetButton);
+            p1s = 0;
+            p2s = 0;
             counter = 1;
             checkIfGameIsOver();
         });
@@ -138,6 +150,8 @@ public class GamePageController implements Initializable {
                     statusLBL.setText(player1.getUsername() + " Won");
                     stopGame();
                 } else {
+                    p1s++;
+                    player1Score.setText(Integer.toString(p1s));
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }
@@ -149,6 +163,8 @@ public class GamePageController implements Initializable {
                     statusLBL.setText(player2.getUsername() + " Won");
                     stopGame();
                 } else {
+                    p2s++;
+                    player2Score.setText(Integer.toString(p2s));
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }
@@ -163,8 +179,8 @@ public class GamePageController implements Initializable {
         this.player1 = player1;
         this.player2 = player2;
 
-        player1LBL.setText(player1.getUsername());
-        player2LBL.setText(player2.getUsername());
+        player1LBL.setText(player1.getUsername() + " :");
+        player2LBL.setText(player2.getUsername() + " :");
 
     }
 }
