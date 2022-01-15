@@ -43,16 +43,16 @@ public class GamePageController implements Initializable {
     private Button button9;
 
     @FXML
-    private Text winnerText;
-
-    @FXML
-    private Button resetButton;
+    private Label statusLBL;
 
     @FXML
     private Label player1LBL;
 
     @FXML
     private Label player2LBL;
+
+    @FXML
+    private Button reStartBTN;
 
 
     private int playerTurn = 0;
@@ -63,26 +63,40 @@ public class GamePageController implements Initializable {
 
     private Player player2;
 
+    private int counter = 1;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
+        buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9));
 
-        buttons.forEach(button ->{
+        buttons.forEach(button -> {
             setupButton(button);
             button.setFocusTraversable(false);
         });
 
-        resetButton.setOnAction(e -> {
+        reStartBTN.setOnAction(e -> {
             buttons.forEach(this::resetButton);
-            winnerText.setText("tik tok toe");
+            counter = 1;
+            checkIfGameIsOver();
         });
+
 
     }
 
-    public void resetButton(Button button){
+    public void resetButton(Button button) {
         button.setDisable(false);
+        button.setText("");
+    }
+
+    private void stopGame() {
+        reStartBTN.setDisable(false);
+        buttons.forEach(this::setButton);
+    }
+
+    private void setButton(Button button) {
+        button.setDisable(true);
         button.setText("");
     }
 
@@ -94,17 +108,17 @@ public class GamePageController implements Initializable {
         });
     }
 
-    public void setPlayerSymbol(Button button){
-        if(playerTurn % 2 == 0){
+    public void setPlayerSymbol(Button button) {
+        if (playerTurn % 2 == 0) {
             button.setText("X");
             playerTurn = 1;
-        } else{
+        } else {
             button.setText("O");
             playerTurn = 0;
         }
     }
 
-    public void checkIfGameIsOver(){
+    public void checkIfGameIsOver() {
         for (int a = 0; a < 8; a++) {
             String line = switch (a) {
                 case 0 -> button1.getText() + button2.getText() + button3.getText();
@@ -117,22 +131,34 @@ public class GamePageController implements Initializable {
                 case 7 -> button3.getText() + button6.getText() + button9.getText();
                 default -> null;
             };
-
             //X winner
             if (line.equals("XXX")) {
-                winnerText.setText("X won!");
+                counter++;
+                if (counter > 3) {
+                    statusLBL.setText(player1.getUsername() + " Won");
+                    stopGame();
+                } else {
+                    buttons.forEach(this::resetButton);
+                    statusLBL.setText("Round " + counter);
+                }
             }
-
             //O winner
             else if (line.equals("OOO")) {
-                winnerText.setText("O won!");
+                counter++;
+                if (counter > 3) {
+                    statusLBL.setText(player2.getUsername() + " Won");
+                    stopGame();
+                } else {
+                    buttons.forEach(this::resetButton);
+                    statusLBL.setText("Round " + counter);
+                }
             }
         }
 
     }
 
 
-    public void initPage(Player player1 , Player player2){
+    public void initPage(Player player1, Player player2) {
 
         this.player1 = player1;
         this.player2 = player2;

@@ -67,15 +67,16 @@ public class MultiPlayPageController implements Initializable {
 
         playBTN.setOnAction(e -> {
             OpenPlayPage();
-            Player player1 = getUserWithUserName(player1TF.getText());
-            Player player2 = getUserWithUserName(player2TF.getText());
-            try {
-                loadPlayPage(player1, player2);
-                cleanPage();
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            if (Verify){
+                Player player1 = getUserWithUserName(player1TF.getText());
+                Player player2 = getUserWithUserName(player2TF.getText());
+                try {
+                    loadPlayPage(player1, player2);
+                    cleanPage();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
-
         });
 
 
@@ -129,13 +130,10 @@ public class MultiPlayPageController implements Initializable {
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/GamePageView.fxml"));
         loader.load();
-
         GamePageController controller = loader.getController();
         controller.initPage(player1, player2);
-//        AnchorPane root = FXMLLoader.load(this.getClass().getResource("../view/GamePageView.fxml"));
         Stage stage = (Stage) playBTN.getScene().getWindow();
         stage.setScene(new Scene(loader.getRoot()));
-
         stage.show();
 
     }

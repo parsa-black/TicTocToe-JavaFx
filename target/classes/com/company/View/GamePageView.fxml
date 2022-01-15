@@ -6,30 +6,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="465.0" prefWidth="479.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.GamePageController">
+<AnchorPane prefHeight="555.0" prefWidth="540.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller.GamePageController">
    <children>
-      <Button fx:id="resetButton" layoutX="215.0" layoutY="410.0" mnemonicParsing="false" styleClass="button1" stylesheets="@StyleSheet.css" text="restart" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="12.0" />
-         </font></Button>
-      <Text fx:id="winnerText" fill="#fa2c56" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIK TOK TOE" wrappingWidth="63.013671875" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="402.0">
-         <font>
-            <Font name="Bell MT" size="24.0" />
-         </font>
-      </Text>
-      <Label fx:id="player1LBL" layoutX="90.0" layoutY="37.0" text="PLayerName1" textFill="WHITE">
+      <Label fx:id="player1LBL" layoutX="58.0" layoutY="160.0" text="PLayerName1" textFill="WHITE">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="player2LBL" layoutX="305.0" layoutY="37.0" text="PlayerName2" textFill="WHITE">
+      <Label fx:id="player2LBL" layoutX="436.0" layoutY="161.0" text="PlayerName2" textFill="WHITE">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <VBox layoutX="90.0" layoutY="83.0" prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="83.0">
+      <VBox layoutX="121.0" layoutY="200.0" prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="200.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="100.0">
                <children>
@@ -90,5 +80,26 @@
             </HBox>
          </children>
       </VBox>
+      <Label layoutX="14.0" layoutY="154.0" prefHeight="29.0" prefWidth="25.0" text="X : " textFill="#fa2c56">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="388.0" layoutY="155.0" prefHeight="29.0" prefWidth="34.0" text="O : " textFill="#fa2c56">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="23.0" prefHeight="17.0" prefWidth="63.0" text="Label" />
+      <Label fx:id="statusLBL" alignment="CENTER" layoutX="-1.0" layoutY="61.0" prefHeight="17.0" prefWidth="540.0" text="Round 1" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="reStartBTN" disable="true" layoutX="239.0" layoutY="516.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="63.0" styleClass="button1" stylesheets="@StyleSheet.css" text="ReStar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
