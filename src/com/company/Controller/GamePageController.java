@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -60,6 +59,9 @@ public class GamePageController implements Initializable {
     @FXML
     private Label player2Score;
 
+    @FXML
+    private Label winnerLBL;
+
     private int p1s = 0; //Player1Score
 
     private int p2s = 0; //Player2Score
@@ -88,6 +90,9 @@ public class GamePageController implements Initializable {
 
         reStartBTN.setOnAction(e -> {
             buttons.forEach(this::resetButton);
+            statusLBL.setText("Round 1");
+            player1Score.setText("0");
+            player2Score.setText("0");
             p1s = 0;
             p2s = 0;
             counter = 1;
@@ -105,6 +110,7 @@ public class GamePageController implements Initializable {
     private void stopGame() {
         reStartBTN.setDisable(false);
         buttons.forEach(this::setButton);
+        // wo win
     }
 
     private void setButton(Button button) {
@@ -143,32 +149,43 @@ public class GamePageController implements Initializable {
                 case 7 -> button3.getText() + button6.getText() + button9.getText();
                 default -> null;
             };
-            //X winner
             if (line.equals("XXX")) {
                 counter++;
+                p1s++;
+                player1Score.setText(Integer.toString(p1s));
                 if (counter > 3) {
-                    statusLBL.setText(player1.getUsername() + " Won");
+                    statusLBL.setText("Game IS Done");
                     stopGame();
                 } else {
-                    p1s++;
-                    player1Score.setText(Integer.toString(p1s));
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }
-            }
-            //O winner
-            else if (line.equals("OOO")) {
+            } else if (line.equals("OOO")){
                 counter++;
+                p2s++;
+                player2Score.setText(Integer.toString(p2s));
                 if (counter > 3) {
-                    statusLBL.setText(player2.getUsername() + " Won");
+                    statusLBL.setText("Game IS Done");
                     stopGame();
                 } else {
-                    p2s++;
-                    player2Score.setText(Integer.toString(p2s));
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }
             }
+            else if (button1.isDisable() && button2.isDisable() && button3.isDisable() && button4.isDisable() &&
+                    button5.isDisable() && button6.isDisable() && button7.isDisable() && button8.isDisable() && button9.isDisable()){
+                counter++;
+                if (counter > 3){
+                    statusLBL.setText("Game IS Done");
+                    stopGame();
+                }
+                else {
+                    buttons.forEach(this::resetButton);
+                    statusLBL.setText("Round " + counter);
+                }
+
+            }
+
         }
 
     }
