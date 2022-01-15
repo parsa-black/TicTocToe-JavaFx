@@ -1,11 +1,16 @@
 package com.company.Controller;
 
 import com.company.Model.Player;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -65,9 +70,18 @@ public class GamePageController implements Initializable {
     @FXML
     private Label winnerLBL;
 
+    @FXML
+    private Button backBTN;
+
+    static Stage stage;
+
     private int p1s = 0; //Player1Score
 
     private int p2s = 0; //Player2Score
+
+    float oneScore;
+
+    float twoScore;
 
 
     private int playerTurn = 0;
@@ -107,6 +121,27 @@ public class GamePageController implements Initializable {
             }
         });
 
+        backBTN.setOnAction(e -> {
+            ((Stage) backBTN.getScene().getWindow()).close();
+
+            try {
+                if (stage == null) {
+                    p1s = 0;
+                    p2s = 0;
+                    counter = 1;
+                    AnchorPane root = FXMLLoader.load(this.getClass().getResource("../View/MultiPlayPageView.fxml"));
+                    stage = new Stage();
+                    stage.setTitle("PlayPage");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    stage = null;
+                }
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
+        });
+
 
     }
 
@@ -118,25 +153,25 @@ public class GamePageController implements Initializable {
     private void stopGame() throws SQLException {
         editUser(player1);
         editUser(player2);
-        float oneScore;
-        float twoScore;
         reStartBTN.setDisable(false);
         buttons.forEach(this::setButton);
-        oneScore = player1.getScore();
-        twoScore = player2.getScore();
         if (p1s > p2s) {
-            oneScore = oneScore + 1;
-            player1.setScore(oneScore);
+             oneScore = player1.getScore();
+            oneScore += 1.0;
+             player1.setScore(oneScore);
             winnerLBL.setText(player1.getUsername() + " Is Won");
             editUser(player1);
         } else if (p2s > p1s) {
-            twoScore = twoScore + 1;
+            twoScore = player2.getScore();
+            twoScore += 1.0;
             player2.setScore(twoScore);
             winnerLBL.setText(player2.getUsername() + " Is Won");
             editUser(player2);
         } else if (p1s == p2s) {
-            oneScore = (float) (oneScore + 0.5);
-            twoScore = (float) (twoScore + 0.5);
+            oneScore = player1.getScore();
+            twoScore = player2.getScore();
+            oneScore += 0.5;
+            twoScore += 0.5;
             player1.setScore(oneScore);
             player1.setScore(twoScore);
             winnerLBL.setText("Is Draw");
@@ -230,6 +265,9 @@ public class GamePageController implements Initializable {
 
         this.player1 = player1;
         this.player2 = player2;
+
+        oneScore = player1.getScore();
+        twoScore = player2.getScore();
 
         player1LBL.setText(player1.getUsername() + " :");
         player2LBL.setText(player2.getUsername() + " :");
