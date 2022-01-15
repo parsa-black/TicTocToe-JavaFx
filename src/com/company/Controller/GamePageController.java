@@ -7,9 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+
+import static com.company.Controller.PlayerDB.editUser;
 
 public class GamePageController implements Initializable {
 
@@ -90,13 +93,18 @@ public class GamePageController implements Initializable {
 
         reStartBTN.setOnAction(e -> {
             buttons.forEach(this::resetButton);
+            winnerLBL.setText("");
             statusLBL.setText("Round 1");
             player1Score.setText("0");
             player2Score.setText("0");
             p1s = 0;
             p2s = 0;
             counter = 1;
-            checkIfGameIsOver();
+            try {
+                checkIfGameIsOver();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         });
 
 
@@ -107,10 +115,35 @@ public class GamePageController implements Initializable {
         button.setText("");
     }
 
-    private void stopGame() {
+    private void stopGame() throws SQLException {
+        editUser(player1);
+        editUser(player2);
+        float oneScore;
+        float twoScore;
         reStartBTN.setDisable(false);
         buttons.forEach(this::setButton);
-        // wo win
+        oneScore = player1.getScore();
+        twoScore = player2.getScore();
+        if (p1s > p2s) {
+            oneScore = oneScore + 1;
+            player1.setScore(oneScore);
+            winnerLBL.setText(player1.getUsername() + " Is Won");
+            editUser(player1);
+        } else if (p2s > p1s) {
+            twoScore = twoScore + 1;
+            player2.setScore(twoScore);
+            winnerLBL.setText(player2.getUsername() + " Is Won");
+            editUser(player2);
+        } else if (p1s == p2s) {
+            oneScore = (float) (oneScore + 0.5);
+            twoScore = (float) (twoScore + 0.5);
+            player1.setScore(oneScore);
+            player1.setScore(twoScore);
+            winnerLBL.setText("Is Draw");
+            editUser(player1);
+            editUser(player2);
+        }
+
     }
 
     private void setButton(Button button) {
@@ -122,7 +155,11 @@ public class GamePageController implements Initializable {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
             button.setDisable(true);
-            checkIfGameIsOver();
+            try {
+                checkIfGameIsOver();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         });
     }
 
@@ -136,7 +173,7 @@ public class GamePageController implements Initializable {
         }
     }
 
-    public void checkIfGameIsOver() {
+    public void checkIfGameIsOver() throws SQLException {
         for (int a = 0; a < 8; a++) {
             String line = switch (a) {
                 case 0 -> button1.getText() + button2.getText() + button3.getText();
@@ -160,7 +197,7 @@ public class GamePageController implements Initializable {
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }
-            } else if (line.equals("OOO")){
+            } else if (line.equals("OOO")) {
                 counter++;
                 p2s++;
                 player2Score.setText(Integer.toString(p2s));
@@ -171,15 +208,13 @@ public class GamePageController implements Initializable {
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }
-            }
-            else if (button1.isDisable() && button2.isDisable() && button3.isDisable() && button4.isDisable() &&
-                    button5.isDisable() && button6.isDisable() && button7.isDisable() && button8.isDisable() && button9.isDisable()){
+            } else if (button1.isDisable() && button2.isDisable() && button3.isDisable() && button4.isDisable() &&
+                    button5.isDisable() && button6.isDisable() && button7.isDisable() && button8.isDisable() && button9.isDisable()) {
                 counter++;
-                if (counter > 3){
+                if (counter > 3) {
                     statusLBL.setText("Game IS Done");
                     stopGame();
-                }
-                else {
+                } else {
                     buttons.forEach(this::resetButton);
                     statusLBL.setText("Round " + counter);
                 }

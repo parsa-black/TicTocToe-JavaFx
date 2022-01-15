@@ -19,7 +19,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <VBox layoutX="121.0" layoutY="200.0" prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="200.0">
+      <VBox layoutX="121.0" layoutY="200.0" prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="203.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="100.0">
                <children>

@@ -1,7 +1,6 @@
 package com.company.Model;
 
 import com.company.Controller.PlayerDB;
-import com.company.Controller.MainPageController;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,15 +10,15 @@ public class Player {
 
     private int id = -1;
     private String username;
-    private int score ;
+    private float score ;
 
-    public Player(int id, String username, int score) {
+    public Player(int id, String username, float score) {
         this.id = id;
         this.username = username;
         this.score = score;
     }
 
-    public Player(String username , int score) {
+    public Player(String username , float score) {
         this.username = username;
         this.score = score;
     }
@@ -71,11 +70,11 @@ public class Player {
         this.username = username;
     }
 
-    public int getScore() {
+    public float getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(float score) {
         this.score = score;
     }
 }
