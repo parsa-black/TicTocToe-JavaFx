@@ -13,6 +13,18 @@
     -fx-background-radius: 20;
 }
 
+.button2 {
+    -fx-background-color: linear-gradient(to top left, #A16BFE, #BC3D2F);
+}
+
+.button2:hover {
+    -fx-background-color: linear-gradient(to top left, #FBCA88, #EF69AD);
+}
+
+.button2:pressed {
+    -fx-background-color: linear-gradient(to top left, #30496B, #30B8D2);
+}
+
 .text-field {
     -fx-background-color: #a9a9a9,
         #FA2C56,
