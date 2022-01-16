@@ -1,1 +1,1 @@
-SELECT * FROM `javafx-project`.users;
+SELECT * FROM `tiktoktoe-project`.players;
