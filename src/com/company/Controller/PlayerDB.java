@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class PlayerDB {
 
-    static final String DB_URL = "jdbc:mysql://localhost:3306/tiktoktoe-project";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ProjectName";
     static final String USER = "root";
-    static final String PASS = "parsagorgzan1225@gmail";
+    static final String PASS = "Database Password";
     private static Connection connection;
     private static Statement statement;
 
