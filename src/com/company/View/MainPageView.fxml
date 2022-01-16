@@ -303,7 +303,17 @@
                         <Image url="@image/game01.png" />
                      </image>
                   </ImageView>
-                  <Hyperlink fx:id="creatorBTN" layoutX="8.0" layoutY="434.0" prefHeight="23.0" prefWidth="154.0" text="By : Parsa" />
+                  <Hyperlink fx:id="creatorBTN" layoutX="8.0" layoutY="425.0" prefHeight="38.0" prefWidth="154.0" text="By : Parsa-black" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/githubicon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Hyperlink>
                </children>
             </AnchorPane>
          </children>
